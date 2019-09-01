@@ -1,0 +1,65 @@
+.rain {
+    position: relative;
+    min-height: 100vh;
+
+    overflow: hidden;
+    
+    animation-name: lightning;
+    animation-duration: 10s;
+    animation-timing-function: steps(100, end);
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+}
+
+.rain::before, .rain::after {
+    content: "";
+
+    z-index: -1;
+
+    position: absolute;
+    left: -50%;
+    right: -50%;
+    top: -50%;
+    bottom: -50%;
+
+    background-image: url("../images/rain.png");
+    background-size: 1280px 720px;
+    background-repeat: repeat;
+    
+    animation-name: rain-animation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    transform: rotate(7deg);
+}
+
+.rain::before {
+    opacity: 0.4;
+    animation-duration: 1s;
+}
+
+.rain::after {
+    opacity: 0.2;
+    animation-duration: 2.5s;
+}
+
+@keyframes rain-animation {
+    from {
+        background-position: 0px 0px;
+    }
+    to {
+        background-position: 0px 720px;
+    }
+}
+
+@keyframes lightning {
+    0% {
+        background-color: transparent;
+    }
+    1% {
+        background-color: white;
+    }
+    5% {
+        background-color: transparent;
+    }
+}
